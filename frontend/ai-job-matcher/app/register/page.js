@@ -93,12 +93,14 @@ async function handleSignUp() {
  // };
 
   return (
-    <div className="min-h-screen flex justify-center items-center dark:bg-black bg-gray-100">
+    <div className="min-h-screen md:w-full w-[100%] bg-gradient-to-b dark:bg-black from-white to-blue-100 flex flex-col bg-white/30  items-center justify-center md:p-4 p-5" 
+    style={{ backgroundImage: "url('https://strapi.dhiwise.com/uploads/2_Common_Gradient_BG_img_OG_Image_42585cc035.png?w=1200&q=75&auto=format')", backgroundSize: "cover" }}>
       <Header/>
              <div className="p-3"></div>
         <div className="flex flex-row items-center gap-6">
       <div className="dark:bg-black p-6 rounded-4xl border-dashed border-2 border-gray-200 shadow-md w-full max-w-md">
-        <h2 className="text-xl font-bold text-center bg-gradient-to-r from-blue-800 to-purple-700 text-white p-2 rounded">Create Profile</h2>
+        <h2 className="text-xl font-bold text-center bg-gradient-to-r from-blue-800 to-purple-700 text-white p-2 rounded animate-beats">Create Profile</h2>
+        <div className="text-sm text-gray-500 mb-4 text-center mt-2"></div>
 
         <input placeholder="Name"  className="w-full p-3 mb-3 text-black border rounded dark:bg-gray-800 dark:text-white" 
          onChange={e => setName(e.target.value)} 
@@ -125,8 +127,8 @@ async function handleSignUp() {
         <button
           onClick={handleSignUp}
           disabled={Saving}
-          className="bg-blue-600 text-white px-6 w-[150px] py-2 rounded 
-                   hover:scale-90 hover:bg-blue-700 transition-transform"
+          className="bg-gradient-to-r from-blue-500 to-blue-700 text-white px-6 w-[150px] py-2 rounded 
+                   hover:scale-90 hover:bg-blue-700 transition-transform justify-center flex mx-auto"
         >
           {Saving ? "Creating Account..." : "Create Account"}
         </button>
