@@ -30,5 +30,5 @@ app.post("/profiles", async (req, res) => {
 app.use(express.json());
 
 app.listen(5000, () => {
-  console.log("✅ Backend running on http://localhost:5000");
+  console.log(" Backend running on http://localhost:5000");
 });
