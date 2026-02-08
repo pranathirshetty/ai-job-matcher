@@ -37,16 +37,3 @@ export async function updateProfile(profileId, newData) {
     throw err;
   }
 }
-
-
-export async function deleteProfile(profileId) {
-  try {
-    const docRef = doc(db, "profiles", profileId);
-    await deleteDoc(docRef);
-    console.log("Profile deleted successfully!");
-    return true;
-  } catch (err) {
-    console.error("Error deleting profile:", err);
-    throw err;
-  }
-}
