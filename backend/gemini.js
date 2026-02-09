@@ -1,33 +1,33 @@
+import 'dotenv/config'; // Must be line 1
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import 'dotenv/config'; // This loads the .env file immediately for this module
 
-console.log("GEMINI KEY:", process.env.GEMINI_API_KEY ? "✅ Key Found" : "❌ Key Undefined");
-
+// 1. Verify Key Exists
 if (!process.env.GEMINI_API_KEY) {
-  throw new Error("❌ GEMINI_API_KEY missing in .env");
+  console.error("❌ ERROR: GEMINI_API_KEY is missing in your .env file!");
 }
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
+// 2. Ensure "export" is present here!
 export async function getJobsFromGemini(profile) {
   try {
-    // Note: 'gemini-1.5-flash' is faster and cheaper if you want to switch later
-    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+    // Using the 2026 stable alias
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest" });
 
     const prompt = `
-      User name: ${profile.name}
-      Skills: ${profile.skills.join(", ")}
+      Recommend 3 jobs for:
+      Name: ${profile.name}
+      Skills: ${profile.skills?.join(", ") || "No skills listed"}
 
-      Return a JSON object with a key "jobs" containing an array of 3 job recommendations.
-      JSON format only:
+      Return ONLY a JSON object in this format:
       {
         "jobs": [
           {
             "title": "Job Title",
             "company": "Company Name",
-            "location": "Location",
+            "location": "Remote",
             "salary": "Range",
-            "matchReason": "Brief reason why it matches"
+            "matchReason": "Why it matches"
           }
         ]
       }
@@ -36,12 +36,12 @@ export async function getJobsFromGemini(profile) {
     const result = await model.generateContent(prompt);
     const text = result.response.text();
 
-    // Cleaning the response in case Gemini wraps it in ```json blocks
-    const cleanText = text.replace(/```json|```/g, "").trim();
-    
-    return JSON.parse(cleanText).jobs || [];
+    // Clean Markdown formatting if Gemini adds it
+    const cleanJson = text.replace(/```json|```/g, "").trim();
+    return JSON.parse(cleanJson).jobs || [];
+
   } catch (err) {
-    console.error("❌ Gemini error:", err.message);
-    return [];
+    console.error("❌ Gemini API Error:", err.message);
+    return []; // Return empty list so the app doesn't crash
   }
 }
