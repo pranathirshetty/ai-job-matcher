@@ -1,10 +1,17 @@
 const express = require("express");
-const app = express();
+const cors = require("cors");
 
-app.get("/health", (req, res) => {
-  res.send("Backend is alive");
+const app = express();
+app.use(cors());
+
+const jobRoutes = require("./routes/jobRoutes");
+app.use("/jobs", jobRoutes);
+
+app.get("/", (req, res) => {
+  res.send("Job backend is running ");
 });
 
-app.listen(4000, () => {
-  console.log("Backend running on port 4000");
+const PORT = 5000;
+app.listen(PORT, () => {
+  console.log(`Backend running on port ${PORT}`);
 });
