@@ -4,7 +4,7 @@ import SearchBar from "../components/ui/searchbar";
 import { useRouter } from "next/navigation";
 import Footer from "../components/Footer";
 
-/* ✅ DEFINE JOB TYPE */
+
 type Job = {
   id?: string;
   title: string;
@@ -16,7 +16,6 @@ type Job = {
 export default function Dashboard() {
   const router = useRouter();
 
-  /* ✅ TYPED STATE */
   const [jobs, setJobs] = useState<Job[]>([]);
   const [searchText, setSearchText] = useState("");
   const [domain, setDomain] = useState("");
@@ -55,7 +54,7 @@ export default function Dashboard() {
       style={{ backgroundImage: "url('/dashboard.png')" }}
     >
       <div className="w-full">
-        {/* NAVBAR */}
+      
         <div className="max-w-7xl mx-auto px-8 py-6 flex items-center justify-between text-black">
           <h1 className="text-2xl font-bold tracking-wide">JobFinder</h1>
 
@@ -66,7 +65,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* HERO */}
+       
         <div className="bg-white/40 rounded-3xl shadow-xl w-[90%] sm:w-[420px] md:w-[1350px] mx-auto p-6 sm:p-8">
           <h1 className="text-5xl mt-10 text-blue-950 font-bold tracking-wide">
             Welcome Back
@@ -90,7 +89,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* SEARCH */}
+      
         <div className="text-cyan-900 text-3xl font-bold mt-20 flex justify-center">
           Recommended for you
         </div>
@@ -106,7 +105,7 @@ export default function Dashboard() {
           onSearchClick={searchJobs}
         />
 
-        {/* JOB LIST */}
+      
         <div className="mt-10 max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {jobs.slice(0, 9).map((job, index) => (
             <div
