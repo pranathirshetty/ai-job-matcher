@@ -1,4 +1,4 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
 
 const jobs = [
@@ -180,7 +180,7 @@ const jobs = [
 router.get("/", (req, res) => {
   const { search = "", domain = "", location = "" } = req.query;
 
-  const filteredJobs = jobs.filter((job) => {
+  const filteredJobs = jobs.filter(job => {
     const matchesSearch =
       job.title.toLowerCase().includes(search.toLowerCase()) ||
       job.company.toLowerCase().includes(search.toLowerCase()) ||
@@ -190,7 +190,7 @@ router.get("/", (req, res) => {
 
     const matchesDomain =
       domain === "" ||
-      job.title.toLowerCase().includes(domain.toLowerCase()) ||
+      job.domain.toLowerCase().includes(domain.toLowerCase()) ||
       job.skills?.some(skill =>
         skill.toLowerCase().includes(domain.toLowerCase())
       );
@@ -205,4 +205,4 @@ router.get("/", (req, res) => {
   res.json(filteredJobs);
 });
 
-module.exports = router;
+export default router;

@@ -2,12 +2,14 @@
 
 import FeatureCard from "../components/ui/feature-card";
 import { useRouter } from "next/navigation";
+import Header from "../components/Header";
 
 
 export default function Landing() {
  const router = useRouter();
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-blue-50">
+      <Header/>
       <div className=" grid grid-cols-2 items-center py-14 px-14">
         <div>
           <h1 className="text-[40px] text-blue-950 font-bold">
@@ -18,7 +20,8 @@ export default function Landing() {
             Find the best jobs tailered to you with AI-driven <br />
             recommendations and easy application tracking
           </h4>
-          <button className="bg-green-700 hover:scale-95 hover:bg-green-700 px-6 py-3 text-white text-[16px] rounded-2xl">
+          <button onClick={() => router.push("/login")}
+          className="bg-green-700 hover:scale-95 hover:bg-green-700 px-6 py-3 text-white text-[16px] rounded-2xl">
             Get Started
           </button>
           <button className="ml-10 border-2 px-6 py-3 rounded-2xl hover:scale-90">

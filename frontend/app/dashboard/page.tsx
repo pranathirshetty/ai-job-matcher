@@ -1,15 +1,16 @@
 "use client";
 import { useEffect, useState } from "react";
 import SearchBar from "../components/ui/searchbar";
-
+import { useRouter } from "next/navigation" 
+import Footer from "../components/Footer";
 export default function Dashboard() {
 const [jobs, setJobs] = useState([]);
-
+ const router = useRouter()
 const [searchText, setSearchText] = useState("");
 const [domain, setDomain] = useState("");
 const [location, setLocation] = useState("");
 const searchJobs = async () => {
-  console.log("SEARCH CLICKED"); // 👈 ADD THIS
+  console.log("SEARCH CLICKED"); 
 
   const query = new URLSearchParams({
     search: searchText,
@@ -17,12 +18,12 @@ const searchJobs = async () => {
     location,
   }).toString();
 
-  console.log("QUERY:", query); // 👈 ADD THIS
+  console.log("QUERY:", query); 
 
   const res = await fetch(`http://localhost:5000/jobs?${query}`);
   const data = await res.json();
 
-  console.log("RESULT:", data); // 👈 ADD THIS
+  console.log("RESULT:", data); 
   setJobs(data);
 };
 
@@ -40,27 +41,45 @@ useEffect(() => {
       style={{ backgroundImage: "url('/dashboard.png')" }}
     >
      <div className="w-full">
-    <div className="max-w-7xl mx-auto px-8 py-6 flex items-center justify-between text-white">
+      
+    <div className="max-w-7xl mx-auto px-8 py-6 flex items-center justify-between text-black">
       <h1 className="text-2xl font-bold tracking-wide">
         JobFinder
       </h1>
       <div className="flex items-center gap-8">
-        <div className="hidden md:flex gap-6 text-sm font-medium">
-          <span className="cursor-pointer hover:opacity-80">Home</span>
-          <span className="cursor-pointer hover:opacity-80">Jobs</span>
-          <span className="cursor-pointer hover:opacity-80">Profile</span>
-        </div>
-        <img
-          src="/profile.jpg"
-          alt="profile"
-          className="w-9 h-9 rounded-full border-2 border-white"
-        />
+      <div className="hidden md:flex gap-6 text-sm font-medium">
+        <span
+          onClick={() => router.push("/")}
+          className="cursor-pointer hover:opacity-80"
+        >
+          Home
+        </span>
+
+        <span
+          onClick={() => router.push("/jobs")}
+          className="cursor-pointer hover:opacity-80"
+        >
+          Jobs
+        </span>
+
+        <span
+          onClick={() => router.push("/profile")}
+          className="cursor-pointer hover:opacity-80"
+        >
+          Profile
+        </span>
       </div>
+    </div>
     </div>
 
 
-    
-      <div className="p-12 rounded-3xl shadow-xl  bg-white/40 px-10 mx-24">
+    <div className="
+  bg-white/40 rounded-3xl shadow-xl
+  w-[90%] sm:w-[420px] md:w-[1350px]
+  mx-auto
+  p-6 sm:p-8
+">
+
         <h1 className="text-5xl  mt-10 text-blue-950  font-bold tracking-wide ">
           Welcome Back
         </h1>
@@ -73,9 +92,13 @@ useEffect(() => {
           <div className="px-6 py-3 hover:scale-95 bg-cyan-700 rounded-2xl text-white hover:bg-cyan-800">
             Explore Jobs
           </div>
-            <div className="px-6 py-3 hover:scale-95 rounded-2xl border border-cyan-900 text-cyan-800 font-medium hover:bg-cyan-600 hover:text-white">
-        Search using AI
-          </div>
+          <div
+  onClick={() => router.push("/register")}
+  className="px-6 py-3 hover:scale-95 rounded-2xl border border-cyan-900
+             text-cyan-800 font-medium cursor-pointer transition"
+>
+  Search using AI
+</div>
         </div>
       </div>
       <div className="text-cyan-900 text-3xl font-bold mt-20 flex items-center justify-center">
@@ -122,6 +145,7 @@ useEffect(() => {
   ))}
 </div>
     </div>
+    <Footer/>
     </div>
   
   );
