@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import Footer from "./components/footer"; // Ensure this path is correct based on your file structure
+import Footer from "./components/footer"; 
 import { 
   Sparkles, 
   ArrowRight, 
@@ -15,7 +15,7 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col">
-      {/* Navigation */}
+     
       <nav className="flex items-center justify-between px-8 py-6 border-b border-slate-200 bg-white/80 backdrop-blur-md sticky top-0 z-50">
         <div className="flex items-center gap-2 text-slate-900 font-bold text-xl">
           <div className="w-8 h-8 bg-indigo-600 rounded flex items-center justify-center text-white text-sm">J</div>
@@ -37,11 +37,10 @@ export default function LandingPage() {
         </div>
       </nav>
 
-      {/* Main Content Area */}
       <main className="flex-grow">
-        {/* Hero Section */}
+        
         <section className="relative pt-20 pb-32 px-6 overflow-hidden">
-          {/* Soft Indigo Glow */}
+        
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-96 bg-indigo-100/50 blur-[120px] rounded-full pointer-events-none" />
 
           <div className="max-w-5xl mx-auto text-center relative z-10">
@@ -76,7 +75,7 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* Stats/Features Section */}
+        
         <section className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8 pb-32">
           <FeatureCard 
             icon={<Briefcase className="text-indigo-600" />} 
@@ -96,13 +95,13 @@ export default function LandingPage() {
         </section>
       </main>
 
-      {/* Footer Component */}
+ 
       <Footer />
     </div>
   );
 }
 
-// Sub-component helper
+
 function FeatureCard({ icon, title, desc }) {
   return (
     <div className="bg-white border border-slate-200 p-8 rounded-2xl hover:border-indigo-300 hover:shadow-xl hover:shadow-indigo-500/5 transition-all group">

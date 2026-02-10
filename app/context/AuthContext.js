@@ -36,13 +36,12 @@ export const AuthProvider = ({ children }) => {
     const uid = auth.currentUser?.uid;
     if (!uid) throw new Error("No user logged in");
 
-    // 🔹 Save locally (optional but recommended)
     await setDoc(doc(db, "profiles", uid), {
       ...profile,
       createdAt: new Date().toISOString(),
     });
 
-    // 🔹 Call backend (Gemini)
+   
     const res = await fetch(
       `http://localhost:5000/users/${uid}/profile`,
       {

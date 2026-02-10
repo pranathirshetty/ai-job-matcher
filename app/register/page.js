@@ -51,12 +51,11 @@ export default function RegisterProfilePage() {
         updatedAt: new Date().toISOString(),
       };
 
-      // Store directly in Firebase Firestore
+      
       await setDoc(doc(db, "profiles", user.uid), profileData);
 
       setIsSuccess(true);
       
-      // Redirect to /dashboard instead of home or jobs
       setTimeout(() => {
         router.push("/dashboard"); 
       }, 2000);
@@ -89,7 +88,7 @@ export default function RegisterProfilePage() {
     <div className="min-h-screen py-12 px-4" style={{ background: "linear-gradient(135deg, #CFD9F4 0%, #FFFFFF 100%)" }}>
       <div className="max-w-4xl mx-auto bg-white/70 backdrop-blur-md rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col md:flex-row border border-white">
         
-        {/* Left Side: Branding */}
+       
         <div className="md:w-1/3 bg-[#185D72] p-10 text-white flex flex-col justify-center">
           <div className="flex items-center gap-2 mb-8">
             <Sparkles size={24} />
@@ -99,7 +98,6 @@ export default function RegisterProfilePage() {
           <p className="text-blue-100 opacity-80 text-sm">Fill in your details to customize your experience.</p>
         </div>
 
-        {/* Right Side: Form Content */}
         <div className="md:w-2/3 p-10 bg-white">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -128,7 +126,7 @@ export default function RegisterProfilePage() {
   );
 }
 
-// Reusable Input Component
+
 function InputField({ label, name, ph, icon, val, change, type = "text" }) {
   return (
     <div className="space-y-2">
