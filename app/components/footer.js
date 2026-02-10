@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           
-          {/* Brand Column */}
+       
           <div className="col-span-1 md:col-span-1">
             <div className="flex items-center gap-2 text-slate-900 font-bold text-lg mb-4">
               <div className="w-6 h-6 bg-indigo-600 rounded flex items-center justify-center text-white text-xs">J</div>
@@ -18,7 +18,7 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Links Columns */}
+  
           <div>
             <h4 className="font-bold text-slate-900 mb-4 text-sm">Product</h4>
             <ul className="space-y-2 text-sm text-slate-600">
@@ -37,7 +37,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Socials Column */}
+ 
           <div>
             <h4 className="font-bold text-slate-900 mb-4 text-sm">Connect</h4>
             <div className="flex gap-4">
