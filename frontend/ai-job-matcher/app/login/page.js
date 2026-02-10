@@ -47,27 +47,21 @@ async function handleLogin() {
            backgroundSize: "cover",
            backgroundPosition: "center",
            backgroundAttachment: "fixed"   }}>
-      
-      <div className="relative w-full max-w-6xl overflow-hidden rounded-[3rem] border border-white/40 bg-white/30 backdrop-blur-2xl shadow-[0_32px_64px_-15px_rgba(0,0,0,0.2)]">
-        
+      <div className="relative w-full max-w-6xl overflow-hidden rounded-[3rem] border border-white/40 bg-white/30 backdrop-blur-2xl">
         <div className="flex flex-col md:flex-row min-h-[700px]">
-          
           <div className="w-full md:w-1/2 p-8 md:p-16 flex flex-col justify-center bg-white/40">
-
             <div className="flex items-center gap-4 mb-12 animate-in fade-in slide-in-from-left duration-700">
               <div 
                 className="w-20 h-20 bg-contain bg-no-repeat bg-center drop-shadow-xl" 
-                style={{ backgroundImage: "url('robot.png')" }}
-              />
-              <div className="text-4xl font-black tracking-tighter text-[#185D72]">
+                style={{ backgroundImage: "url('robot.png')" }}/>
+              <div className="md:text-4xl text-2xl font-black  text-[#185D72]">
                 Job<span className="text-blue-600">Finder</span>
               </div>
             </div>
-            <div className="mb-10">
-              <h2 className="text-4xl font-black text-[#185D72] leading-tight">
+            <div className="mb-10"> <h2 className="text-4xl font-black text-[#185D72] leading-tight">
                 Sign Up <span className="text-blue-600">To</span> <br />Continue
               </h2>
-              <p className="text-slate-500 mt-2 font-medium">Empowering your career with AI precision.</p>
+              <p className="text-slate-500 mt-2 font-serif">Empowering your career with AI precision.</p>
             </div>
             <div className="space-y-4">
               <div className="group">
@@ -77,23 +71,16 @@ async function handleLogin() {
                 />
               </div>
               <div className="group">
-                <input 
-                  type="password"
-                  placeholder="Password"
-                  value={password}
+                <input type="password" placeholder="Password" value={password}
                   onChange={e => setPassword(e.target.value)}
-                  className="w-full p-4 rounded-2xl border-2 border-slate-200/60 bg-white/70 outline-none focus:border-blue-500 focus:bg-white transition-all duration-300 font-medium shadow-sm"
-                />
+                  className="w-full p-4 rounded-2xl border-2 border-slate-200/60 bg-white/70 outline-none focus:border-blue-500 focus:bg-white transition-all duration-300 font-medium shadow-sm"/>
               </div>
             </div>
             <label className="flex items-center gap-3 mt-6 mb-8 cursor-pointer group">
-              <div className="relative flex items-center">
-                <input
-                  type="checkbox"
-                  checked={checked}
+               <div className="relative flex items-center">
+                <input type="checkbox" checked={checked}
                   onChange={() => setChecked(!checked)}
-                  className="peer h-6 w-6 cursor-pointer appearance-none rounded-lg border-2 border-slate-300 bg-white checked:bg-blue-600 checked:border-blue-600 transition-all"
-                />
+                  className="peer h-6 w-6 cursor-pointer appearance-none rounded-lg border-2 border-slate-300 bg-white checked:bg-blue-600 checked:border-blue-600 transition-all"/>
                 <svg className="absolute h-4 w-4 text-white opacity-0 peer-checked:opacity-100 left-1 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="4">
                   <path d="M5 13l4 4L19 7" />
                 </svg>
@@ -103,11 +90,8 @@ async function handleLogin() {
               </span>
             </label>
             <div className="flex gap-4">
-              <button 
-                onClick={handleLogin}
-                disabled={loading}
-                className="flex-1 bg-white border-2 border-blue-500 text-blue-600 font-black py-4 rounded-2xl hover:bg-blue-50 transition-all active:scale-95 disabled:opacity-50"
-              >
+              <button onClick={handleLogin} disabled={loading}
+                className="flex-1 bg-white border-2 border-blue-500 text-blue-600 font-black py-4 rounded-2xl hover:bg-blue-50 transition-all active:scale-95 disabled:opacity-50">
                 LOGIN
               </button>
               <button 
@@ -119,20 +103,15 @@ async function handleLogin() {
               </button>
             </div>
           </div>
-
           <div className="hidden md:flex md:w-1/2 relative bg-gradient-to-br from-blue-600/20 to-indigo-600/10 items-center justify-center p-1 overflow-hidden">
             <div className="absolute w-[500px] h-[500px] bg-blue-400/20 rounded-full blur-[100px] "></div>
-            
             <div
               className="relative z-10 w-full h-full bg-contain bg-no-repeat bg-center transition-transform duration-1000 hover:scale-110"
-              style={{ backgroundImage: "url('workspace.png')" }}
-            />
-            
-          </div>
+              style={{ backgroundImage: "url('workspace.png')" }} >
+              </div>
+           </div>
         </div>
       </div>
     </div>
-
-
   );
 }

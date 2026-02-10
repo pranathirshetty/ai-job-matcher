@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/app/context/AuthContext";
-
 export default function CreateProfilePage() {
   const { user, loading, createRegister } = useAuth();
   const router = useRouter();
@@ -38,53 +37,34 @@ export default function CreateProfilePage() {
       setSaving(false);
     }
   }
-
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-slate-50 p-6" 
+    <div className="min-h-screen w-full flex items-center justify-center bg-slate-50  p-6" 
          style={{ 
-           backgroundImage: "url('https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L3JtMzA5LWFkai0wOS14LmpwZw.jpg')", 
-           backgroundSize: "cover",
-           backgroundPosition: "center" 
-         }}>
-      
+           backgroundImage: "url('https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L3JtMzA5LWFkai0wOS14LmpwZw.jpg')", backgroundSize: "cover", backgroundPosition: "center" }}>
       <div className="relative w-full max-w-6xl group">
         <div className="absolute -inset-1 bg-gradient-to-r from-teal-500 to-blue-600 rounded-[3rem] blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
-
         <div className="relative flex flex-col md:flex-row w-full min-h-[800px] bg-white/80 backdrop-blur-2xl rounded-[2.5rem] shadow-2xl overflow-hidden border border-white/50">
-          
-     
           <div className="md:w-1/3 bg-[#185D72] text-white p-12 flex flex-col justify-between relative overflow-hidden">
-
             <div className="absolute top-[-10%] right-[-10%] w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
-            
             <div className="relative z-10">
               <div className="flex items-center gap-0 mb-8">
-    
-                <h1 className="text-3xl font-black tracking-tighter">JobFinder</h1>
-              </div>
-              
-              <h2 className="text-4xl font-bold leading-tight mb-6">
-                Step into your <br />
-                <span className="text-teal-300">new career.</span>
+             <h1 className="text-3xl font-black tracking-tighter">JobFinder</h1>
+              </div>              
+              <h2 className="text-4xl font-bold leading-tight mb-6"> Step into your <br />
+              <span className="text-teal-300">new career.</span>
               </h2>
               <p className="text-teal-50/80 leading-relaxed text-lg font-medium">
-                Our AI analyzes your unique expertise to pinpoint roles that match your lifestyle.
-              </p>
-            </div>
-
-            <div className="relative z-10">
+                Our AI analyzes your unique expertise to pinpoint roles that match your lifestyle </p>
+            </div>   <div className="relative z-10">
               <div className="h-[2px] w-12 bg-teal-400 mb-4"></div>
-              <p className="uppercase text-[15px] font-black  text-teal-200/50">
-                Phase 01: Profile Architecture
-              </p>
+              <p className="uppercase text-[15px] font-black text-teal-200/50"> Phase 01: Profile Architecture </p>
             </div>
           </div>
-
           <div className="flex-1 p-8 md:p-14 bg-white/40">
             <div className="max-w-2xl mx-auto">
               <div className="text-center mb-10">
-                <div className="inline-flex items-center justify-center gap-4 mb-4">
-                  <img src="robot.png" alt="AI" className="w-12 h-12 object-contain animate-pulse" />
+                <div className="inline-flex items-center justify-center  mb-4">
+                  <img src="robot.png" alt="AI" className="w-40 h-40 object-contain animate-pulse" />
                   <h2 className="text-3xl font-black text-[#185D72] tracking-tight">Smart-AI Finder</h2>
                 </div>
                 <p className="text-slate-500 font-medium italic">“Your AI-powered shortcut to the perfect job.”</p>
@@ -104,8 +84,7 @@ export default function CreateProfilePage() {
                     <input type={input.type}
                       placeholder={input.placeholder}
                       onChange={(e) => input.setter(e.target.value)}
-                      className="w-full bg-white/60 border-2 border-slate-100 p-4 rounded-2xl outline-none focus:border-teal-500/50 focus:bg-white transition-all duration-300 placeholder:text-slate-400 font-medium shadow-sm"
-                    />
+                      className="w-full bg-white/60 border-2 border-slate-100 p-4 rounded-2xl outline-none focus:border-teal-500/50 focus:bg-white transition-all duration-300 placeholder:text-slate-400 font-medium shadow-sm"/>
                   </div>
                 ))}
               </div>
@@ -119,7 +98,6 @@ export default function CreateProfilePage() {
                 </span> </button> 
             </div>
           </div>
-
         </div>
       </div>
     </div>
