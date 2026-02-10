@@ -1,6 +1,8 @@
-AI-Powered Job Matching System*
+AI-Powered Job Matching System
+
 About the Project
-The AI-Powered Job Matching System is an intelligent platform that connects job seekers with the most relevant job opportunities based on their skills, preferences, and profile context. It leverages AI to provide personalized job recommendations, making job search faster, smarter, and more efficient.
+
+* The AI-Powered Job Matching System is an intelligent platform that connects job seekers with the most relevant job opportunities based on their skills, preferences, and profile context. It leverages AI to provide personalized job recommendations, making job search faster, smarter, and more efficient.
 ---
 System Architecture
 The system follows a modular, scalable architecture consisting of four core components:
