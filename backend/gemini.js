@@ -11,7 +11,7 @@ const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 export async function getJobsFromGemini(profile) {
   try {
     const prompt = `
-      Recommend 3 jobs for the following profile.
+      Recommend 5 jobs for the following profile.
       Name: ${profile.name}
       Skills: ${profile.skills?.join(", ") || "No skills listed"}
 

@@ -24,4 +24,4 @@ if (typeof window !== "undefined") {
   } catch (err) {
     console.warn("Firebase analytics not initialized:", err.message || err);
   }
-}222
+}

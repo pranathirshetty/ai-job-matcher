@@ -18,7 +18,6 @@ app.post("/users/:userId/profile", async (req, res) => {
       return res.status(400).json({ error: "Name and skills array are required" });
     }
 
-    // Save profile
     await db.collection("users").doc(userId).set({
       ...profile,
       createdAt: new Date(),
