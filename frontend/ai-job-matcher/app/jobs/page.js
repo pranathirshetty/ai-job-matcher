@@ -46,11 +46,11 @@ return (
             <div key={i} className="group relative bg-white/60 backdrop-blur-md border border-white/80 p-1 rounded-[2.5rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(31,86,105,0.15)] transition-all duration-500 hover:-translate-y-2" >
  <div className="bg-white/90 p-8 rounded-[2.3rem] border-2 border-dashed border-slate-300">   
  <div className="flex flex-col md:flex-row justify-between items-start gap-6">
-  <div className="flex gap-6">
+  <div className="flex gap-6 ">
  <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-[#1F5669] to-blue-500 flex items-center justify-center text-white font-black text-2xl shadow-lg ring-4 ring-white"> {job.company?.[0] || "J"}
    </div>
       <div>
-        <h3 className="font-extrabold text-2xl tracking-tight group-hover:text-blue-600 transition-colors duration-300" style={{ color: "#1F5669" }}>
+        <h3 className="font-extrabold text-2xl tracking-tight group-hover:text-blue-600 transition-colors duration-300" style={{ color: "#1F5669," }}>
               {job.title}
        </h3>
       <div className="flex flex-wrap items-center gap-4 mt-2">
